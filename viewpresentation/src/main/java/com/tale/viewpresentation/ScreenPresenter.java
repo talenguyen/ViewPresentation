@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ScreenPresenter {
 
-  private static final String TAG = "ScreenPresenter";
   private Stack<ScreenInfo> screenViewStack = new Stack<>();
   private List<Runnable> commands;
   private Runnable pendingCommand;
@@ -127,7 +125,6 @@ public class ScreenPresenter {
   private void prepareEnterCommand(ViewAnimationExecutor animator, final View view) {
     addCommand(new AnimationCommand(view, animator, new Runnable() {
       @Override public void run() {
-        Log.d(TAG, "run Enter");
         executePendingCommands();
       }
     }));
@@ -158,7 +155,6 @@ public class ScreenPresenter {
 
   private void pushScreen(ScreenInfo screen) {
     screenViewStack.push(screen);
-    Log.d(TAG, "pushScreen StackSize: " + screenViewStack.size());
   }
 
   @Nullable private ScreenInfo popScreen() {
@@ -194,7 +190,6 @@ public class ScreenPresenter {
       running = true;
       waitingQueue.set(commands.size());
       for (Runnable command : commands) {
-        Log.d(TAG, "executeCommands");
         command.run();
       }
       commands.clear();
@@ -214,7 +209,6 @@ public class ScreenPresenter {
       pendingCommand = null;
     }
     running = false;
-    Log.d(TAG, "executePendingCommands() called with: childCount " + rootView.getChildCount());
   }
 
 }

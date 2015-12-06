@@ -9,13 +9,11 @@ package com.tale.viewpresentationsample;
 
 import android.app.Application;
 import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 
 public class ViewPresentationApplication extends Application {
-  private RefWatcher refWatcher;
 
   @Override public void onCreate() {
     super.onCreate();
-    refWatcher = LeakCanary.install(this);
+    LeakCanary.install(this);
   }
 }

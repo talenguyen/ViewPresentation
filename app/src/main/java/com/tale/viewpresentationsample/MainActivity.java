@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     screenPresenter.onDestroy();
     screenPresenter = null;
     super.onDestroy();
+
   }
 
   public void showTop(View view) {
