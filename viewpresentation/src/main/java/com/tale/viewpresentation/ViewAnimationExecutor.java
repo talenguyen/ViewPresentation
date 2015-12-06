@@ -12,7 +12,12 @@ import java.lang.ref.WeakReference;
 
 public abstract class ViewAnimationExecutor {
 
+  protected final long duration;
   private WeakReference<Runnable> callbackRef;
+
+  public ViewAnimationExecutor(long duration) {
+    this.duration = duration;
+  }
 
   public abstract void apply(View target);
 

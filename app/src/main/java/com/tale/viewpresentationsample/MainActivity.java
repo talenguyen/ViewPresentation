@@ -38,14 +38,16 @@ public class MainActivity extends AppCompatActivity {
     final ScreenView screenView = new ScreenView(this);
     screenView.setName("Top");
     screenView.setBackgroundColor(Color.BLUE);
-    screenPresenter.show(screenView, new SlideInTopAnimator(1000), new SlideOutBottomAnimator(1000), new SlideInBottomAnimator(1000), new SlideOutTopAnimator(1000), true);
+    screenPresenter.show(screenView, new SlideInTopAnimator(1000), new SlideOutBottomAnimator(1000),
+        new SlideInBottomAnimator(1000), new SlideOutTopAnimator(1000), true);
   }
 
   public void showLeft(View view) {
     final ScreenView screenView = new ScreenView(this);
     screenView.setName("Left");
     screenView.setBackgroundColor(Color.GREEN);
-    screenPresenter.show(screenView, new SlideInLeftAnimator(1000), new SlideOutRightAnimator(1000), true);
+    screenPresenter.show(screenView, new SlideInLeftAnimator(1000), new SlideOutRightAnimator(1000),
+        null, null, true);
   }
 
   public void showRight(View view) {

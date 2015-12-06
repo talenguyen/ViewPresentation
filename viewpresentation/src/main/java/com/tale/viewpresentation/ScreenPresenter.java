@@ -111,7 +111,7 @@ public class ScreenPresenter {
     }
     prepareEnterCommand(enterAnimator, enterView);
     if (enterAnimator == null) {
-      rootView.addView(enterView, 0);
+      rootView.addView(enterView, rootView.getChildCount() - 1);
     } else {
       rootView.addView(enterView);
     }
